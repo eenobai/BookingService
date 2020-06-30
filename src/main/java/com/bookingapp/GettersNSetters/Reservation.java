@@ -1,16 +1,21 @@
 package com.bookingapp.GettersNSetters;
 
+import java.util.ArrayList;
+
 public class Reservation {
 
-    private int reservationID;
+    public double reservationID;
+    public String reservationName;
     private String roomType;
     private String location;
     private int reservationDateStart;
     private int reservationDateEnd;
     private String name;
     private String sureName;
+    public ArrayList<Double> tempReservationIDArray= new ArrayList();
+    public ArrayList<String> tempReservationNameArray = new ArrayList();
 
-    public Reservation(int reservationID, String roomType, String location, int reservationDateStart, int reservationDateEnd, String name, String sureName){
+    public Reservation(double reservationID, String roomType, String location, int reservationDateStart, int reservationDateEnd, String name, String sureName){
         this.reservationID = reservationID;
         this.roomType = roomType;
         this.location = location;
@@ -21,12 +26,14 @@ public class Reservation {
     }
 
     public Reservation() {
-
     }
 
-    public int getReservationID(){
-        return 69;
+    public double getReservationID(){
+        return 2; //temp for testing purposes
         //return reservationID;
+    }
+    public String getReservationName(){
+        return reservationName;
     }
     public String getRoomType(){
         return roomType;
@@ -35,42 +42,53 @@ public class Reservation {
         return location;
     }
     public int getReservationDateStart(){
-        return 7331;
-        //return reservationDateStart;
+        return reservationDateStart;
     }
     public int getReservationDateEnd(){
-        return 1337;
-        //return reservationDateEnd;
+        return reservationDateEnd;
     }
     public String getName(){
-        //return name;
-        return "name";
+        return name;
     }
     public String getSureName(){
-        return "surename";
-        //return sureName;
+        return sureName;
+    }
+    public ArrayList getIDArray(){
+        return tempReservationIDArray;
+    }
+    public ArrayList getNameArray(){
+        return tempReservationNameArray;
     }
 
-    public void setReservationID(){
+    public void setReservationID(double reservationID){
         this.reservationID = reservationID;
     }
-    public void setRoomType(){
+    public void setReservationName(String reservationName){
+        this.reservationName = reservationName;
+    }
+    public void setRoomType(String roomType){
         this.roomType = roomType;
     }
-    public void setLocation(){
+    public void setLocation(String location){
         this.location = location;
     }
-    public void setReservationDateStart(){
+    public void setReservationDateStart(int reservationDateStart){
         this.reservationDateStart = reservationDateStart;
     }
-    public void setReservationDateEnd(){
+    public void setReservationDateEnd(int reservationDateEnd){
         this.reservationDateEnd = reservationDateEnd;
     }
-    public void setName(){
+    public void setName(String name){
         this.name = name;
     }
-    public void setSureName(){
+    public void setSureName(String sureName){
         this.sureName = sureName;
+    }
+    public void setIDArray(double reservationID){
+        this.tempReservationIDArray.add(reservationID);
+    }
+    public void setNameArray(String reservationName){
+        this.tempReservationNameArray.add(reservationName);
     }
 
 }

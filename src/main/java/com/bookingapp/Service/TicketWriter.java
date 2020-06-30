@@ -31,11 +31,12 @@ public class TicketWriter {
 
             Row idRow = sheet.getRow(2);
             Cell idCell = idRow.createCell(7);
-            idCell.setCellValue(reservation.getReservationID());
+            idCell.setCellValue((Double) reservation.getIDArray().get(reservation.tempReservationIDArray.indexOf(reservation.reservationID)));
 
             Row reservationStartRow = sheet.createRow(7);
             Cell reservationStartCell = reservationStartRow.createCell(2);
             reservationStartCell.setCellValue(reservation.getReservationDateStart());
+            reservationStartCell.setCellValue((String) reservation.getNameArray().get(reservation.tempReservationNameArray.indexOf(reservation.reservationName)));
 
             Row reservationEndRow = sheet.getRow(7);
             Cell reservationEndCell = reservationEndRow.createCell(3);
