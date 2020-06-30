@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.io.IOException;
-
+import org.springframework.context.*;
 public class BookingApplication {
 
     public static void main(String[] args) throws IOException {

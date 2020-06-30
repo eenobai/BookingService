@@ -1,11 +1,11 @@
 package com.bookingapp.GettersNSetters;
-
+import org.springframework.context.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
-@Component
+
 public class Reservation {
 
     public double reservationID;

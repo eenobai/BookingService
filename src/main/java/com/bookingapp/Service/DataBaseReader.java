@@ -10,7 +10,7 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.*;
 import org.springframework.stereotype.Component;
 
 
@@ -37,7 +37,6 @@ public class DataBaseReader {
             }
         }*/
 
-    @Autowired
     private Reservation reservation;
 
     public void dbReader(){

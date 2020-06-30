@@ -1,6 +1,6 @@
 package com.bookingapp.Service;
 import com.bookingapp.GettersNSetters.Reservation;
-
+import org.springframework.context.*;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class TicketWriter {
 
-    @Autowired
     private Reservation reservation;
 
     public void ticketWriter() throws IOException {
