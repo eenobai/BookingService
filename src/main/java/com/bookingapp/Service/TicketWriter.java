@@ -42,7 +42,7 @@ public class TicketWriter {
         }
 
 
-        try (FileOutputStream outputStream = new FileOutputStream("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demoTicket.xlsx")) {
+        try (FileOutputStream outputStream = new FileOutputStream("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demoTicket.xlsx")) {
             workBook.write(outputStream);
         }
     }
