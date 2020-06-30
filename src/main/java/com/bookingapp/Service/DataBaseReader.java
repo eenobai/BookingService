@@ -1,45 +1,66 @@
 package com.bookingapp.Service;
 
+import com.bookingapp.GettersNSetters.Reservation;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.FormulaEvaluator;
-import org.apache.poi.ss.usermodel.Row;
 
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+
 
 @Component
 public class DataBaseReader {
 
-        FileInputStream data = new FileInputStream(new File("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx"));
-
-
+    FileInputStream data = new FileInputStream(new File("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx"));
     XSSFWorkbook workBook = new XSSFWorkbook(data);
-
     XSSFSheet sheet = workBook.getSheetAt(0);
 
-    FormulaEvaluator formulaEvaluator = workBook.getCreationHelper().createFormulaEvaluator();
+    /*
+        public DataBaseReader(ArrayList<Integer> tempReservArrayID, ArrayList<String> tempReservArrayStr) throws IOException {
+            this.tempReservArrayID = tempReservArrayID;
+            this.tempReservArrayStr = tempReservArraySt
+        }
+        private Object getCellVal(Cell cell){
+            cell.getCellType(); {
+                if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
+                    return cell.getNumericCellValue();
+                } else {
+                    return cell.getStringCellValue();
+                }
+            }
+        }*/
+
+    @Autowired
+    private Reservation reservation;
 
     public void dbReader(){
 
-        for (Row row : sheet) {
-            for (Cell cell : row) {
-                switch (formulaEvaluator.evaluateInCell(cell).getCellType()) {
-                    case Cell.CELL_TYPE_NUMERIC:
-                        System.out.print(cell.getNumericCellValue() + "\t\t");
-                        break;
-                    case Cell.CELL_TYPE_STRING:
-                        System.out.print(cell.getStringCellValue() + "\t\t");
-                        break;
-                }
-            }
 
+        for (int rowIndex = 0; rowIndex <= sheet.getLastRowNum();  rowIndex++){
+            Row row = sheet.getRow(rowIndex);
+            Cell cell = row.getCell(0);
+            reservation.setIDArray(cell.getNumericCellValue());
         }
-    }
+        for (int rowIndex = 0; rowIndex <= sheet.getLastRowNum();  rowIndex++){
+            Row row = sheet.getRow(rowIndex);
+            Cell cell = row.getCell(1);
+            reservation.setNameArray(cell.getStringCellValue());
+        }
+        for (int rowIndex = 0; rowIndex <= sheet.getLastRowNum();  rowIndex++){
+            Row row = sheet.getRow(rowIndex);
+            Cell cell = row.getCell(2);
+            reservation.setLocationArray(cell.getStringCellValue());
+        }
 
+        System.out.println("Reader" + reservation.tempReservationIDArray.toString() + reservation.tempReservationNameArray.toString() + reservation.tempReservationLocationArray.toString());//for testing purposes
+    }
     public DataBaseReader() throws IOException {
     }
 }

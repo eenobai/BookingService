@@ -1,3 +1,4 @@
+import com.bookingapp.GettersNSetters.Reservation;
 import com.bookingapp.Service.TicketWriter;
 import com.bookingapp.Service.DataBaseReader;
 import org.springframework.context.ApplicationContext;
