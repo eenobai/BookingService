@@ -26,12 +26,12 @@ public class TicketWriter {
         int rowCount = 0;
 
         for (Object[] aBook : bookData) {
-            Row row = sheet.createRow(++rowCount);
+            Row row = sheet.createRow(++rowCount); // createRow(int)
 
             int columnCount = 0;
 
             for (Object field : aBook) {
-                Cell cell = row.createCell(++columnCount);
+                Cell cell = row.createCell(++columnCount); //createCell(int)
                 if (field instanceof String) {
                     cell.setCellValue((String) field);
                 } else if (field instanceof Integer) {
