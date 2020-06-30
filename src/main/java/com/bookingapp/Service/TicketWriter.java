@@ -9,37 +9,38 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Component;
 
+import com.bookingapp.GettersNSetters.Reservation;
+
 @Component
 public class TicketWriter {
+
 
     public void ticketWriter() throws IOException {
         XSSFWorkbook workBook = new XSSFWorkbook();
         XSSFSheet sheet = workBook.createSheet("Reservation Ticket");
 
-        Object[][] bookData = {
-                {"Head First Java", "Kathy Serria", 79},
-                {"Effective Java", "Joshua Bloch", 36},
-                {"Clean Code", "Robert martin", 42},
-                {"Thinking in Java", "Bruce Eckel", 35},
-        };
+        Reservation reservation = new Reservation();
 
-        int rowCount = 0;
+            Row nameRow = sheet.createRow(2);
+            Cell nameCell = nameRow.createCell(2);
+            nameCell.setCellValue(reservation.getName());
 
-        for (Object[] aBook : bookData) {
-            Row row = sheet.createRow(++rowCount);
+            Row sureNameRow = sheet.getRow(2);
+            Cell sureNameCell = sureNameRow.createCell(3);
+            sureNameCell.setCellValue(reservation.getSureName());
 
-            int columnCount = 0;
+            Row idRow = sheet.getRow(2);
+            Cell idCell = idRow.createCell(7);
+            idCell.setCellValue(reservation.getReservationID());
 
-            for (Object field : aBook) {
-                Cell cell = row.createCell(++columnCount);
-                if (field instanceof String) {
-                    cell.setCellValue((String) field);
-                } else if (field instanceof Integer) {
-                    cell.setCellValue((Integer) field);
-                }
-            }
+            Row reservationStartRow = sheet.createRow(7);
+            Cell reservationStartCell = reservationStartRow.createCell(2);
+            reservationStartCell.setCellValue(reservation.getReservationDateStart());
 
-        }
+            Row reservationEndRow = sheet.getRow(7);
+            Cell reservationEndCell = reservationEndRow.createCell(3);
+            reservationEndCell.setCellValue(reservation.getReservationDateEnd());
+
 
 
         try (FileOutputStream outputStream = new FileOutputStream("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demoTicket.xlsx")) {
