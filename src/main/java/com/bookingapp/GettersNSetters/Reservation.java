@@ -16,9 +16,7 @@ public class Reservation {
     private int reservationDateEnd;
     private String name;
     private String sureName;
-    public ArrayList<Double> tempReservationIDArray= new ArrayList();
-    public ArrayList<String> tempReservationNameArray = new ArrayList();
-    public ArrayList<String> tempReservationLocationArray = new ArrayList();
+
 /*
     public Reservation(double reservationID, String reservationName, String roomType, String location, int reservationDateStart, int reservationDateEnd, String name, String sureName, ArrayList<Double> tempReservationIDArray, ArrayList<String> tempReservationNameArray, ArrayList<String> tempReservationLocationArray){
         this.reservationID = reservationID;
@@ -60,15 +58,15 @@ public class Reservation {
     public String getSureName(){
         return sureName;
     }
-    public ArrayList getIDArray(){
-        return tempReservationIDArray;
-    }
-    public ArrayList getNameArray(){
-        return tempReservationNameArray;
-    }
-    public ArrayList getLocationArray() {
-        return tempReservationLocationArray;
-    }
+    //public ArrayList getIDArray(){
+    //    return tempReservationIDArray;
+    //}
+   // public ArrayList getNameArray(){
+     //   return tempReservationNameArray;
+   // }
+    //public ArrayList getLocationArray() {
+    //    return tempReservationLocationArray;
+   // }
 
     public void setReservationID(double reservationID){
         this.reservationID = reservationID;
@@ -94,14 +92,14 @@ public class Reservation {
     public void setSureName(String sureName){
         this.sureName = sureName;
     }
-    public void setIDArray(double reservationID){
-        this.tempReservationIDArray.add(reservationID);
-    }
-    public void setNameArray(String reservationName){
-        this.tempReservationNameArray.add(reservationName);
-    }
-    public void setLocationArray(String location){
-        this.tempReservationLocationArray.add(location);
-    }
+  //  public void setIDArray(double reservationID){
+   //     this.tempReservationIDArray.add(reservationID);
+   // }
+    //public void setNameArray(String reservationName){
+   //     this.tempReservationNameArray.add(reservationName);
+   // }
+   // public void setLocationArray(String location){
+    //    this.tempReservationLocationArray.add(location);
+    //}
 
 }

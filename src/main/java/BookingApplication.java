@@ -1,4 +1,4 @@
-import com.bookingapp.GettersNSetters.Reservation;
+
 import com.bookingapp.Service.LogicModule;
 import com.bookingapp.Service.TicketWriter;
 import com.bookingapp.Service.DataBaseReader;
@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.io.IOException;
-import org.springframework.context.*;
+
 public class BookingApplication {
 
     public static void main(String[] args) throws IOException {
@@ -17,7 +17,7 @@ public class BookingApplication {
        TicketWriter bbb = applicationContext.getBean(TicketWriter.class);
         LogicModule reservation = new LogicModule();
 
-        reservation.testMethod();
+        reservation.test();
 
     }
 }

@@ -1,29 +1,24 @@
 package com.bookingapp.Service;
 
-import com.bookingapp.GettersNSetters.Reservation;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.bookingapp.Service.DataBaseReader;
-import com.bookingapp.Service.DataBaseReader;
 
-import javax.xml.crypto.Data;
+
 import java.io.IOException;
+import java.util.List;
 
 @Component
 public class LogicModule {
 
-    DataBaseReader dataBaseReader = new DataBaseReader();
-    TicketWriter ticketWriter = new TicketWriter();
+    public void test() throws IOException {
 
-    Reservation reservation = new Reservation();
+        TicketWriter ticket = new TicketWriter();
+        DataBaseReader db = new DataBaseReader();
 
-    public LogicModule() throws IOException {
+        List<Double> dataB = db.idReader();
+        System.out.println(dataB.toString());
+
+        ticket.ticketWriter("kek", "w", dataB, 2, 69, 96);
+
+
     }
-
-    public void testMethod() throws IOException {
-
-        ticketWriter.ticketWriter();
-        dataBaseReader.dataBaseReader();
-    }
-
 }
