@@ -1,4 +1,5 @@
 import com.bookingapp.GettersNSetters.Reservation;
+import com.bookingapp.Service.LogicModule;
 import com.bookingapp.Service.TicketWriter;
 import com.bookingapp.Service.DataBaseReader;
 import org.springframework.context.ApplicationContext;
@@ -14,10 +15,9 @@ public class BookingApplication {
 
        DataBaseReader aaa = applicationContext.getBean(DataBaseReader.class);
        TicketWriter bbb = applicationContext.getBean(TicketWriter.class);
+        LogicModule reservation = new LogicModule();
 
-        aaa.dbReader();
-        bbb.ticketWriter();
+        reservation.testMethod();
 
     }
-
 }

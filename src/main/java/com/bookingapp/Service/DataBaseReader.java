@@ -18,7 +18,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataBaseReader {
 
-    FileInputStream data = new FileInputStream(new File("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx"));
+    FileInputStream data = new FileInputStream(new File("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demo.xlsx"));
     XSSFWorkbook workBook = new XSSFWorkbook(data);
     XSSFSheet sheet = workBook.getSheetAt(0);
 
@@ -39,7 +39,7 @@ public class DataBaseReader {
 
     private Reservation reservation;
 
-    public void dbReader(){
+    public void dataBaseReader(){
 
 
         for (int rowIndex = 0; rowIndex <= sheet.getLastRowNum();  rowIndex++){

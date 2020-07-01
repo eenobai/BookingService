@@ -19,7 +19,7 @@ public class Reservation {
     public ArrayList<Double> tempReservationIDArray= new ArrayList();
     public ArrayList<String> tempReservationNameArray = new ArrayList();
     public ArrayList<String> tempReservationLocationArray = new ArrayList();
-
+/*
     public Reservation(double reservationID, String reservationName, String roomType, String location, int reservationDateStart, int reservationDateEnd, String name, String sureName, ArrayList<Double> tempReservationIDArray, ArrayList<String> tempReservationNameArray, ArrayList<String> tempReservationLocationArray){
         this.reservationID = reservationID;
         this.reservationName = reservationName;
@@ -34,6 +34,7 @@ public class Reservation {
         this.tempReservationLocationArray = tempReservationLocationArray;
 
     }
+*/
 
     public double getReservationID(){
         return reservationID;
