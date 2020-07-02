@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 
+@Component
 public class Reservation {
 
     public double reservationID;
@@ -14,8 +15,8 @@ public class Reservation {
     private String location;
     private int reservationDateStart;
     private int reservationDateEnd;
-    private String name;
-    private String sureName;
+    public String name;
+    public String sureName;
 
 /*
     public Reservation(double reservationID, String reservationName, String roomType, String location, int reservationDateStart, int reservationDateEnd, String name, String sureName, ArrayList<Double> tempReservationIDArray, ArrayList<String> tempReservationNameArray, ArrayList<String> tempReservationLocationArray){

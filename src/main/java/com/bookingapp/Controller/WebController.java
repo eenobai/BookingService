@@ -1,23 +1,22 @@
 package com.bookingapp.Controller;
 
 import com.bookingapp.GettersNSetters.Reservation;
+import com.bookingapp.Service.LogicModule;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
-@Controller
+
+@RestController
 public class WebController {
 
-    @GetMapping("/newReservation")
-    public void nameInput(Model model){
-        model.addAttribute("name", new Reservation());
+
+   /* @RequestMapping("/newReservation")
+    public String addName(){
+        Reservation reservation = null;
+        reservation.setName(reservation.name);
+        return "test";
     }
-
-    @PostMapping("/newReservation")
-    public void nameSubmit(@ModelAttribute Reservation reservation){
-
-    }
-
+*/
 }

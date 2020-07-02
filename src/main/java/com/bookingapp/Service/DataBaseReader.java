@@ -19,26 +19,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataBaseReader {
 
-    FileInputStream data = new FileInputStream(new File("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx"));
+    FileInputStream data = new FileInputStream(new File("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demo.xlsx"));
     XSSFWorkbook workBook = new XSSFWorkbook(data);
     XSSFSheet sheet = workBook.getSheetAt(0);
 
-    /*
-        public DataBaseReader(ArrayList<Integer> tempReservArrayID, ArrayList<String> tempReservArrayStr) throws IOException {
-            this.tempReservArrayID = tempReservArrayID;
-            this.tempReservArrayStr = tempReservArraySt
-        }
-        private Object getCellVal(Cell cell){
-            cell.getCellType(); {
-                if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-                    return cell.getNumericCellValue();
-                } else {
-                    return cell.getStringCellValue();
-                }
-            }
-        }*/
-
-    private Reservation reservation;
+    public DataBaseReader() throws IOException {
+    }
 
     public ArrayList idReader(){
         List<Double> tempReservationIDArray= new ArrayList();
@@ -71,6 +57,5 @@ public class DataBaseReader {
         return (ArrayList) tempReservationLocationArray;
     }
 
-    public DataBaseReader() throws IOException {
-    }
+
 }
