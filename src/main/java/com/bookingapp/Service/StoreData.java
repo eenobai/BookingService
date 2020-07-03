@@ -10,25 +10,51 @@ import java.io.*;
 
 @Component
 public class StoreData {
-        int j = 0;
-        int i;
 
-        FileInputStream data = new FileInputStream(new File("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx"));
-        XSSFWorkbook workBook = new XSSFWorkbook(data);
-        XSSFSheet sheet = workBook.getSheetAt(1);
-        Row reservationID = sheet.getRow(i); //clients name
-        Cell idCell = reservationID.createCell(0);
+    private int i = 0;
 
-        public void cellCheck(){
+    FileInputStream data = new FileInputStream(new File("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx"));
+    XSSFWorkbook workBook = new XSSFWorkbook(data);
+    XSSFSheet sheet = workBook.getSheetAt(1);
 
-            if(idCell.getNumericCellValue() != Cell.CELL_TYPE_BLANK){
+
+    public void cellCheck() {
+        Row checkRow = sheet.getRow(i);
+//
+        System.out.println(checkRow.getFirstCellNum() + " <first cell num|last cell num> " + checkRow.getLastCellNum());
+
+        for(Row row : sheet) {
+            for (Cell cell : checkRow) {
+                if(cell.getCellType() != Cell.CELL_TYPE_BLANK){
+                    i++;
+                    System.out.println(cell.getCellType() == Cell.CELL_TYPE_BLANK);
+                    System.out.println("iterration" + i);
+                }else if(cell.getCellType() == Cell.CELL_TYPE_BLANK){
+                    System.out.println("final value " + i);
+                }
+                //System.out.println("iterration" + i);
+               // i++;
+            }
+        }
+       // while(checkCell.getNumericCellValue() != Cell.CELL_TYPE_BLANK){
+       //     i++;
+       // }
+
+    }
+
+
+    public void storeData(double input) throws IOException {
+
+        /*for (c = checkRow.getFirstCellNum(); c < checkRow.getLastCellNum(); c++) {
+            checkCell = checkRow.getCell(0);
+            if (checkCell.getCellType() != Cell.CELL_TYPE_BLANK) {
                 i++;
             }
-
         }
-
-
-        public void storeData(double input) throws IOException {
+         */
+            System.out.println(i);
+            Row reservationID = sheet.createRow(i);
+            Cell idCell = reservationID.createCell(0);
             idCell.setCellValue(input);
             try (FileOutputStream outData = new FileOutputStream("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx")) {
                 workBook.write(outData);
@@ -38,7 +64,8 @@ public class StoreData {
         }
 
     public StoreData() throws IOException {
-    }
+        }
 }
+
 
 

@@ -24,7 +24,9 @@ public class LogicModule {
         List<String> location = db.locationReader();
         List<String> reservationName = db.reservationNamReader();
 
+        storeData.cellCheck();
         storeData.storeData(69);
+
 
 
         System.out.println(id.toString());
