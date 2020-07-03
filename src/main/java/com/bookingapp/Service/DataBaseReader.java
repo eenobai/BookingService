@@ -1,7 +1,5 @@
 package com.bookingapp.Service;
 
-import com.bookingapp.GettersNSetters.Reservation;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -14,12 +12,10 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.stereotype.Component;
 
-
-
 @Component
 public class DataBaseReader {
 
-    FileInputStream data = new FileInputStream(new File("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demo.xlsx"));
+    FileInputStream data = new FileInputStream(new File("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx"));
     XSSFWorkbook workBook = new XSSFWorkbook(data);
     XSSFSheet sheet = workBook.getSheetAt(0);
 
@@ -37,7 +33,7 @@ public class DataBaseReader {
         return (ArrayList) tempReservationIDArray;
     }
 
-    public ArrayList nameReader(){
+    public ArrayList reservationNamReader(){
         List<String> tempReservationNameArray = new ArrayList();
         for (int rowIndex = 0; rowIndex <= sheet.getLastRowNum();  rowIndex++){
             Row row = sheet.getRow(rowIndex);

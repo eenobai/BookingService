@@ -15,24 +15,16 @@ import org.springframework.stereotype.Component;
 public class TicketWriter {
 
 
-    public void ticketWriter(String name, String sureName, List<Double> id, int idIndex, int reservationDateStart, int reservationDateEnd) throws IOException {
+    public void ticketWriter(String name, String sureName, List<Double> id, int idIndex, int reservationDateStart, int reservationDateEnd, List<String> reservationLocation, List<String> reservationName) throws IOException {
         XSSFWorkbook workBook = new XSSFWorkbook();
         XSSFSheet sheet = workBook.createSheet("Reservation Ticket");
-
-        //System.out.println("Writer" + reservation.tempReservationIDArray.toString() + reservation.tempReservationNameArray.toString() + reservation.tempReservationLocationArray.toString());
-           /* name = "kek";
-            sureName = "w";
-            idIndex = 2;
-            reservationDateStart = 69;
-            reservationDateEnd = 96;
-            */
 
 
             Row nameRow = sheet.createRow(2); //clients name
             Cell nameCell = nameRow.createCell(2);
             nameCell.setCellValue(name);
 
-            Row sureNameRow = sheet.getRow(2); //clients surename
+            Row sureNameRow = sheet.getRow(2); //clients surname
             Cell sureNameCell = sureNameRow.createCell(3);
             sureNameCell.setCellValue(sureName);
 
@@ -48,10 +40,16 @@ public class TicketWriter {
             Cell reservationEndCell = reservationEndRow.createCell(3);
             reservationEndCell.setCellValue(reservationDateEnd);
 
-            //TODO - add Location and Name of the booking
+            Row locationRow= sheet.getRow(7);
+            Cell locationCell = locationRow.createCell(6);
+            locationCell.setCellValue(reservationLocation.get(idIndex));
+
+            Row bookingNameRow = sheet.getRow(7);
+            Cell bookingNameCell = bookingNameRow.createCell(7);
+            bookingNameCell.setCellValue(reservationName.get(idIndex));
 
 
-        try (FileOutputStream outputStream = new FileOutputStream("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demoTicket.xlsx")) {
+        try (FileOutputStream outputStream = new FileOutputStream("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demoTicket.xlsx")) {
             workBook.write(outputStream);
         }
     }

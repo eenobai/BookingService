@@ -15,15 +15,23 @@ public class LogicModule {
     TicketWriter ticket;
     @Autowired
     DataBaseReader db;
+    @Autowired
+    StoreData storeData;
 
     public void test() throws IOException {
 
-        List<Double> dataB = db.idReader();
+        List<Double> id = db.idReader();
+        List<String> location = db.locationReader();
+        List<String> reservationName = db.reservationNamReader();
 
-        System.out.println(dataB.toString());
+        storeData.storeData(69);
 
-        ticket.ticketWriter("kek", "w", dataB, 3, 69, 96);
 
+        System.out.println(id.toString());
+
+        ticket.ticketWriter("kek", "w", id, 3, 69, 96, location, reservationName);
+
+        //TODO name, sureName, index, reservationDateStart and reservationDateEnd require REST integration
 
     }
 }
