@@ -17,7 +17,8 @@ public class LogicModule {
     DataBaseReader db;
     @Autowired
     StoreData storeData;
-    @Autowired EntryDeleter entryDeleter;
+    @Autowired
+    EntryDeleter entryDeleter;
 
     public void test() throws IOException {
 
@@ -25,8 +26,8 @@ public class LogicModule {
         List<String> location = db.locationReader();
         List<String> reservationName = db.reservationNamReader();
 
-        storeData.cellCheck();
-        storeData.storeData(69);
+        //storeData.cellCheck();
+        storeData.storeData(96, 3);
         entryDeleter.deleteEntry(3);
 
 
