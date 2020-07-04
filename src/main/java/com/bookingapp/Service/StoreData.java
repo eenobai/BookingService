@@ -13,7 +13,7 @@ public class StoreData {
 
     private int i = 0;
 
-    FileInputStream data = new FileInputStream(new File("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx"));
+    FileInputStream data = new FileInputStream(new File("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demo.xlsx"));
     XSSFWorkbook workBook = new XSSFWorkbook(data);
     XSSFSheet sheet = workBook.getSheetAt(1);
 
@@ -29,9 +29,10 @@ public class StoreData {
                     i++;
                     System.out.println(cell.getCellType() == Cell.CELL_TYPE_BLANK);
                     System.out.println("iterration" + i);
-                }else if(cell.getCellType() == Cell.CELL_TYPE_BLANK){
+                }/*else if(cell.getCellType() == Cell.CELL_TYPE_BLANK){
                     System.out.println("final value " + i);
-                }
+                    break;
+                }*/
                 //System.out.println("iterration" + i);
                // i++;
             }
@@ -56,7 +57,7 @@ public class StoreData {
             Row reservationID = sheet.createRow(i);
             Cell idCell = reservationID.createCell(0);
             idCell.setCellValue(input);
-            try (FileOutputStream outData = new FileOutputStream("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx")) {
+            try (FileOutputStream outData = new FileOutputStream("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demo.xlsx")) {
                 workBook.write(outData);
             } catch (IOException e) {
                 e.printStackTrace();

@@ -17,6 +17,7 @@ public class LogicModule {
     DataBaseReader db;
     @Autowired
     StoreData storeData;
+    @Autowired EntryDeleter entryDeleter;
 
     public void test() throws IOException {
 
@@ -26,7 +27,7 @@ public class LogicModule {
 
         storeData.cellCheck();
         storeData.storeData(69);
-
+        entryDeleter.deleteEntry(3);
 
 
         System.out.println(id.toString());
