@@ -1,5 +1,6 @@
 package com.bookingapp.Service;
 
+import com.bookingapp.GettersNSetters.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
@@ -19,16 +20,29 @@ public class LogicModule {
     StoreData storeData;
     @Autowired
     EntryDeleter entryDeleter;
+    @Autowired
+    Reservation reservation;
+    @Autowired
+    CheckAvailableReservations checkAvailableReservations;
+
+    public void compare(){
+        //TODO logic that removes taken reservation IDs from existing pool of reservation IDs
+    }
 
     public void test() throws IOException {
 
         List<Double> id = db.idReader();
         List<String> location = db.locationReader();
         List<String> reservationName = db.reservationNamReader();
+        List<Double> reservedIds = checkAvailableReservations.reservedIds();
+        System.out.println("check available reservations " + reservedIds.toString());
+
+
 
         //storeData.cellCheck();
-        storeData.storeData(96, 3);
-        entryDeleter.deleteEntry(3);
+        //storeData.storeData(id.get(reservation.getIdIndex()), reservation.getReservationDateStart(), reservation.getReservationDateEnd(), storeData.cellCheck());
+        //storeData.storeData(133333337, 666999, 999666, storeData.cellCheck()); //<< for testing purposes
+        //entryDeleter.deleteEntry(3);
 
 
         System.out.println(id.toString());

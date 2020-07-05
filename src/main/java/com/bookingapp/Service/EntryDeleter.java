@@ -26,6 +26,7 @@ public class EntryDeleter {
     }
 
     public void deleteEntry(int idIndex) throws IOException {
+        //
         //Row row = sheet.getRow(idIndex);
         sheet.removeRow(sheet.getRow(idIndex));
         sheet.shiftRows(idIndex+1,sheet.getLastRowNum(),-1);

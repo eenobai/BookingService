@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 @Component
 public class Reservation {
-
+    public int idIndex;
     public double reservationID;
     public String reservationName;
     private String roomType;
@@ -34,7 +34,9 @@ public class Reservation {
 
     }
 */
-
+    public int getIdIndex(){
+        return idIndex;
+    }
     public double getReservationID(){
         return reservationID;
     }
@@ -69,6 +71,9 @@ public class Reservation {
     //    return tempReservationLocationArray;
    // }
 
+    public void setIdIndex(int idIndex){
+        this.idIndex = idIndex;
+    }
     public void setReservationID(double reservationID){
         this.reservationID = reservationID;
     }
