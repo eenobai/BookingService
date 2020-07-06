@@ -34,7 +34,7 @@ public class LogicModule {
         List<String> location = db.locationReader();
         List<String> reservationName = db.reservationNamReader();
         List<Double> reservedIds = checkAvailableReservations.reservedIds();
-        System.out.println("check available reservations " + reservedIds.toString());
+        //System.out.println("check available reservations " + reservedIds.toString());
 
         compare.compare();
 
@@ -45,9 +45,9 @@ public class LogicModule {
         //entryDeleter.deleteEntry(3);
 
 
-        System.out.println(id.toString());
+        //System.out.println(id.toString());
 
-        ticket.ticketWriter("kek", "w", id, 3, 69, 96, location, reservationName);
+        //ticket.ticketWriter("kek", "w", id, 3, 69, 96, location, reservationName);
 
         //TODO name, sureName, index, reservationDateStart and reservationDateEnd require REST integration
 
