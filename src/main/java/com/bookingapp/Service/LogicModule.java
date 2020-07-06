@@ -24,10 +24,9 @@ public class LogicModule {
     Reservation reservation;
     @Autowired
     CheckAvailableReservations checkAvailableReservations;
+    @Autowired
+    Compare compare;
 
-    public void compare(){
-        //TODO logic that removes taken reservation IDs from existing pool of reservation IDs
-    }
 
     public void test() throws IOException {
 
@@ -37,6 +36,7 @@ public class LogicModule {
         List<Double> reservedIds = checkAvailableReservations.reservedIds();
         System.out.println("check available reservations " + reservedIds.toString());
 
+        compare.compare();
 
 
         //storeData.cellCheck();
