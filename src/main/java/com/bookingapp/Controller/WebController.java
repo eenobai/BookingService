@@ -1,17 +1,15 @@
 package com.bookingapp.Controller;
 
 import com.bookingapp.GettersNSetters.Reservation;
+import com.bookingapp.Service.Compare;
 import com.bookingapp.Service.DataBaseReader;
-import com.bookingapp.Service.EntryDeleter;
-import com.bookingapp.Service.LogicModule;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import java.util.HashMap;
 
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,14 +19,22 @@ public class WebController {
 
     @Autowired
     DataBaseReader dataBaseReader;
+    @Autowired
+    Compare compare;
 
 
     @GetMapping("/newReservation")
-    public List<Double> reservationForm(Model model){
+    public HashMap reservationForm(Model model){
         model.addAttribute("???", new WebController());
-        List<String> test= new ArrayList();
         System.out.println("check test kek");
-        return dataBaseReader.idReader();
+        List<Double> ids= compare.compare();
+        List<String> locations = compare.outputListOfLocations();
+        List<String> names = compare.outputListOfNames();
+        HashMap<String, List<String>> output = new HashMap<String, List<String>>();
+        output.put("locations", locations);
+        output.put("names", names);
+       // output.put("ids", ids); <<need to figure this one out
+        return output;
     }
 
     @PostMapping("/newReservation")

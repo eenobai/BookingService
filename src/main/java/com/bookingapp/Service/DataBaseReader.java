@@ -15,8 +15,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataBaseReader {
 
-    //FileInputStream data = new FileInputStream(new File("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demo.xlsx"));
-    FileInputStream data = new FileInputStream(new File("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx"));
+    FileInputStream data = new FileInputStream(new File("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demo.xlsx"));
+    //FileInputStream data = new FileInputStream(new File("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx"));
     XSSFWorkbook workBook = new XSSFWorkbook(data);
     XSSFSheet sheet = workBook.getSheetAt(0);
 
@@ -29,7 +29,6 @@ public class DataBaseReader {
             Row row = sheet.getRow(rowIndex);
             Cell cell = row.getCell(0);
             tempReservationIDArray.add(cell.getNumericCellValue());
-            //System.out.println(tempReservationIDArray.toString());
         }
         return (ArrayList) tempReservationIDArray;
     }

@@ -6,50 +6,74 @@ import org.springframework.stereotype.Component;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Component
 public class Compare {
+
 
     @Autowired
     DataBaseReader dataBaseReader;
     @Autowired
-    CheckAvailableReservations checkAvailableReservations;
+    ReservedDataBaseReader reservedDataBaseReader;
 
-    public void compare(){
-        ArrayList<Double> reservedId = checkAvailableReservations.reservedIds();
-        List<Integer> reservedDateStart = checkAvailableReservations.reservedIds();
-        List<Integer> reservedDateEnd = checkAvailableReservations.reservedIds();
 
+/*    List<String> location = dataBaseReader.locationReader();
+
+    List<Double> finalIdsPool = new ArrayList();
+*/
+    public List<Double> compare(){
         List<Double> idsPool = dataBaseReader.idReader();
-
+        List<Double> reservedId = reservedDataBaseReader.reservedIds();
+        List<Integer> reservedDateStart = reservedDataBaseReader.reservedIds();
+        List<Integer> reservedDateEnd = reservedDataBaseReader.reservedIds();
         List<Double> finalIds = new ArrayList();
 
         int reserved = reservedId.size();
         int pool = idsPool.size();
 
-    /*    List<Double> tempList = new ArrayList();
-        for(int tempInd = 0; tempInd < reserved; tempInd++){
-            tempList.add(reservedId.get(tempInd));
-        }
-
-     */
         if(reserved > pool){
             System.out.println("db error");
         }else if(reserved <= pool){
-            System.out.println("ids pool " + idsPool);
             for(int reservedInd = 0; reservedInd < reserved; reservedInd++){ //int poolInd = 0; poolInd<pool; poolInd++
                 if(idsPool.contains(reservedId.get(reservedInd))){ //<--need proper counter
-
                     finalIds.add(reservedId.get(reservedInd));
-                    System.out.println("reserved ind id " + reservedId.get(reservedInd));
                     int remove = idsPool.indexOf(finalIds.get(reservedInd));
                     idsPool.remove(remove);
                     //System.out.println("reserved < pool " + finalIds);
                 // for(int poolInd = 0; poolInd<pool; poolInd++){}
                 }
             }
-            System.out.println("reserved < pool " + idsPool);
+
         }
 
-
+    return idsPool;
     }
+
+    public List<String> outputListOfLocations(){
+        List<Double> fullIdsPool = dataBaseReader.idReader();
+        List<Double> idsPool;
+        idsPool = compare();
+        List<String> location = dataBaseReader.locationReader();
+        List<String> locationIds = new ArrayList();
+        for(int indx = 0; indx < idsPool.size(); indx++){
+            int indxOf = fullIdsPool.indexOf(idsPool.get(indx));
+            locationIds.add(location.get(indxOf));
+        }
+        return locationIds;
+    }
+
+    public List<String> outputListOfNames(){
+        List<Double> fullIdsPool = dataBaseReader.idReader();
+        List<Double> idsPool;
+        idsPool = compare();
+        List<String> reservationName = dataBaseReader.reservationNamReader();
+        List<String> nameIds = new ArrayList();
+        for(int indx = 0; indx < idsPool.size(); indx++){
+            int indxOf = fullIdsPool.indexOf(idsPool.get(indx));
+            nameIds.add(reservationName.get(indxOf));
+        }
+        return reservationName;
+    }
+
+
 }

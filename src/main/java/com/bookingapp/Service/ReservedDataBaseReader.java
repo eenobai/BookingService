@@ -14,15 +14,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class CheckAvailableReservations {
+public class ReservedDataBaseReader {
 
 
-    //FileInputStream data = new FileInputStream(new File("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demo.xlsx"));
-    FileInputStream data = new FileInputStream(new File("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx"));
+    FileInputStream data = new FileInputStream(new File("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demo.xlsx"));
+    //FileInputStream data = new FileInputStream(new File("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx"));
     XSSFWorkbook workBook = new XSSFWorkbook(data);
     XSSFSheet sheet = workBook.getSheetAt(1);
 
-    public CheckAvailableReservations() throws IOException {
+    public ReservedDataBaseReader() throws IOException {
     }
 
     public ArrayList reservedIds(){

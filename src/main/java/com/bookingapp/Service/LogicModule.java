@@ -2,7 +2,6 @@ package com.bookingapp.Service;
 
 import com.bookingapp.GettersNSetters.Reservation;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 
@@ -23,7 +22,7 @@ public class LogicModule {
     @Autowired
     Reservation reservation;
     @Autowired
-    CheckAvailableReservations checkAvailableReservations;
+    ReservedDataBaseReader reservedDataBaseReader;
     @Autowired
     Compare compare;
 
@@ -33,11 +32,11 @@ public class LogicModule {
         List<Double> id = db.idReader();
         List<String> location = db.locationReader();
         List<String> reservationName = db.reservationNamReader();
-        List<Double> reservedIds = checkAvailableReservations.reservedIds();
-        //System.out.println("check available reservations " + reservedIds.toString());
+        List<Double> reservedIds = reservedDataBaseReader.reservedIds();
 
-        compare.compare();
+        //compare.outputListOfInfo();
 
+        //compare.outputListOfInfo();
 
         //storeData.cellCheck();
         //storeData.storeData(id.get(reservation.getIdIndex()), reservation.getReservationDateStart(), reservation.getReservationDateEnd(), storeData.cellCheck());
