@@ -27,19 +27,25 @@ public class WebController {
     public HashMap reservationForm(Model model){
         model.addAttribute("???", new WebController());
         System.out.println("check test kek");
-        List<Double> ids= compare.compare();
+        List<Double> ids = compare.compare();
         List<String> locations = compare.outputListOfLocations();
         List<String> names = compare.outputListOfNames();
+        List<String> idsToString = new ArrayList<String>();
+        for(Double id : ids){
+            idsToString.add(id.toString());
+        }
         HashMap<String, List<String>> output = new HashMap<String, List<String>>();
+        output.put("ids", idsToString);
         output.put("locations", locations);
         output.put("names", names);
+
        // output.put("ids", ids); <<need to figure this one out
         return output;
     }
 
     @PostMapping("/newReservation")
-    public double reservationSubmit(@ModelAttribute Reservation reservation){
-        return 12;
+    public void selectReservation(@RequestBody Reservation reservation){
+
     }
 
 }

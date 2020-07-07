@@ -27,7 +27,6 @@ public class Compare {
         List<Integer> reservedDateStart = reservedDataBaseReader.reservedIds();
         List<Integer> reservedDateEnd = reservedDataBaseReader.reservedIds();
         List<Double> finalIds = new ArrayList();
-
         int reserved = reservedId.size();
         int pool = idsPool.size();
 
@@ -39,13 +38,9 @@ public class Compare {
                     finalIds.add(reservedId.get(reservedInd));
                     int remove = idsPool.indexOf(finalIds.get(reservedInd));
                     idsPool.remove(remove);
-                    //System.out.println("reserved < pool " + finalIds);
-                // for(int poolInd = 0; poolInd<pool; poolInd++){}
                 }
             }
-
         }
-
     return idsPool;
     }
 
@@ -72,7 +67,7 @@ public class Compare {
             int indxOf = fullIdsPool.indexOf(idsPool.get(indx));
             nameIds.add(reservationName.get(indxOf));
         }
-        return reservationName;
+        return nameIds;
     }
 
 
