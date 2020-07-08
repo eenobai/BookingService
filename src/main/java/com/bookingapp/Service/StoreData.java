@@ -13,7 +13,7 @@ public class StoreData {
 
     private int i = 0;
 
-    FileInputStream data = new FileInputStream(new File("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demo.xlsx"));
+    FileInputStream data = new FileInputStream(new File("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx"));
     //FileInputStream data = new FileInputStream(new File("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx"));
     XSSFWorkbook workBook = new XSSFWorkbook(data);
     XSSFSheet sheet = workBook.getSheetAt(1);
@@ -48,8 +48,7 @@ public class StoreData {
             cellDateStart.setCellValue(reservationDateStart);
             Cell cellDateEnd = row.createCell(2);
             cellDateEnd.setCellValue(reservationDateEnd);
-            try (FileOutputStream outData = new FileOutputStream("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demo.xlsx")) {
-                //try (FileOutputStream outData = new FileOutputStream("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx")) {
+            try (FileOutputStream outData = new FileOutputStream("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx")) {
                 workBook.write(outData);
             } catch (IOException e) {
                 e.printStackTrace();

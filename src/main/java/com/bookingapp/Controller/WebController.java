@@ -21,6 +21,8 @@ public class WebController {
     DataBaseReader dataBaseReader;
     @Autowired
     Compare compare;
+    @Autowired
+    Reservation reservation;
 
 
     @GetMapping("/newReservation")
@@ -45,6 +47,12 @@ public class WebController {
 
     @PostMapping("/newReservation")
     public void selectReservation(@RequestBody Reservation reservation){
+        double id = 0;
+        String name = " ";
+        String sureName = " ";
+        reservation.setReservationID(id);
+        reservation.setName(name);
+        reservation.setSureName(sureName);
 
     }
 

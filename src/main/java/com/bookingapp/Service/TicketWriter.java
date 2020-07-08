@@ -49,8 +49,8 @@ public class TicketWriter {
             bookingNameCell.setCellValue(reservationName.get(idIndex));
 
 
-        try (FileOutputStream outputStream = new FileOutputStream("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demoTicket.xlsx")) {
-            //try (FileOutputStream outputStream = new FileOutputStream("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demoTicket.xlsx")) {
+        //try (FileOutputStream outputStream = new FileOutputStream(".resources/demoTicket.xlsx")) {
+            try (FileOutputStream outputStream = new FileOutputStream("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demoTicket.xlsx")) {
             workBook.write(outputStream);
         }
     }
