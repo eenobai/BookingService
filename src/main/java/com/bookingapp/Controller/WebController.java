@@ -53,6 +53,8 @@ public class WebController {
         reservation.setReservationID(id);
         reservation.setName(name);
         reservation.setSureName(sureName);
+        System.out.println("PostMapping test");
+        System.out.println(id + id);
 
     }
 
