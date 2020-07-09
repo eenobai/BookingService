@@ -24,8 +24,6 @@ public class Compare {
     public List<Double> compare(){
         List<Double> idsPool = dataBaseReader.idReader();
         List<Double> reservedId = reservedDataBaseReader.reservedIds();
-        List<Integer> reservedDateStart = reservedDataBaseReader.reservedIds();
-        List<Integer> reservedDateEnd = reservedDataBaseReader.reservedIds();
         List<Double> finalIds = new ArrayList();
         int reserved = reservedId.size();
         int pool = idsPool.size();

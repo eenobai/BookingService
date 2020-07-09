@@ -3,10 +3,13 @@ package com.bookingapp.Controller;
 import com.bookingapp.GettersNSetters.Reservation;
 import com.bookingapp.Service.Compare;
 import com.bookingapp.Service.DataBaseReader;
+import com.bookingapp.Service.TicketWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 import java.util.HashMap;
 
 
@@ -23,6 +26,9 @@ public class WebController {
     Compare compare;
     @Autowired
     Reservation reservation;
+    @Autowired
+    TicketWriter ticketWriter;
+
 
 
     @GetMapping("/newReservation")
@@ -46,15 +52,15 @@ public class WebController {
     }
 
     @PostMapping("/newReservation")
-    public void selectReservation(@RequestBody Reservation reservation){
-        double id = 0;
-        String name = " ";
-        String sureName = " ";
-        reservation.setReservationID(id);
-        reservation.setName(name);
-        reservation.setSureName(sureName);
-        System.out.println("PostMapping test");
-        System.out.println(id + id);
+    public void selectReservation(@RequestBody Reservation reservation) throws IOException {
+
+        int i = compare.outputListOfNames().indexOf(reservation.getReservationName());
+        System.out.println("indx id " + i);
+
+        System.out.println("id to index id " + reservation.getIdIndex());
+
+        ticketWriter.ticketWriter(reservation.getName(), reservation.getSureName(), reservation.getReservationID(), i, 69, 96, compare.outputListOfLocations(), compare.outputListOfNames());
+        System.out.println(reservation.getReservationID() + reservation.getReservationID());
 
     }
 

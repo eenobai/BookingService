@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class TicketWriter {
 
 
-    public void ticketWriter(String name, String sureName, List<Double> id, int idIndex, int reservationDateStart, int reservationDateEnd, List<String> reservationLocation, List<String> reservationName) throws IOException {
+    public void ticketWriter(String name, String sureName, double id, int idIndex, int reservationDateStart, int reservationDateEnd, List<String> reservationLocation, List<String> reservationName) throws IOException {
         XSSFWorkbook workBook = new XSSFWorkbook();
         XSSFSheet sheet = workBook.createSheet("Reservation Ticket");
 
@@ -30,7 +30,7 @@ public class TicketWriter {
 
             Row idRow = sheet.getRow(2);  //booking id
             Cell idCell = idRow.createCell(7);
-            idCell.setCellValue(id.get(idIndex));
+            idCell.setCellValue(id);
 
             Row reservationStartRow = sheet.createRow(7);
             Cell reservationStartCell = reservationStartRow.createCell(2);
