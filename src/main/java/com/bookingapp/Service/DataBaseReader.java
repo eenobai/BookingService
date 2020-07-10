@@ -15,7 +15,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class DataBaseReader {
 
-    //FileInputStream data = new FileInputStream(new File("resources\\demo.xlsx"));
     FileInputStream data = new FileInputStream(new File("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx"));
     XSSFWorkbook workBook = new XSSFWorkbook(data);
     XSSFSheet sheet = workBook.getSheetAt(0);
@@ -52,6 +51,4 @@ public class DataBaseReader {
         }
         return (ArrayList) tempReservationLocationArray;
     }
-
-
 }

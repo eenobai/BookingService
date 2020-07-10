@@ -1,12 +1,17 @@
-package com.bookingapp.Service;
+package com.bookingapp.Unused;
 
 import com.bookingapp.GettersNSetters.Reservation;
+import com.bookingapp.Service.Compare;
+import com.bookingapp.Service.DataBaseReader;
+import com.bookingapp.Service.ReservedDataBaseReader;
+import com.bookingapp.Service.TicketWriter;
+import com.bookingapp.Unused.EntryDeleter;
+import com.bookingapp.Unused.StoreData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 
 import java.io.IOException;
-import java.util.List;
 
 
 @Component
@@ -26,8 +31,4 @@ public class LogicModule {
     @Autowired
     Compare compare;
 
-
-    public void test() throws IOException {
-        //ticketWriter.ticketWriter(reservation.getName(), reservation.getSureName(), reservation.getReservationID(), 3, 69, 96, compare.outputListOfLocations(), compare.outputListOfNames());
-    }
 }

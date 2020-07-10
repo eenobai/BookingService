@@ -10,7 +10,6 @@ import java.util.List;
 @Component
 public class Compare {
 
-
     @Autowired
     DataBaseReader dataBaseReader;
     @Autowired
@@ -31,8 +30,8 @@ public class Compare {
         if(reserved > pool){
             System.out.println("db error");
         }else if(reserved <= pool){
-            for(int reservedInd = 0; reservedInd < reserved; reservedInd++){ //int poolInd = 0; poolInd<pool; poolInd++
-                if(idsPool.contains(reservedId.get(reservedInd))){ //<--need proper counter
+            for(int reservedInd = 0; reservedInd < reserved; reservedInd++){
+                if(idsPool.contains(reservedId.get(reservedInd))){
                     finalIds.add(reservedId.get(reservedInd));
                     int remove = idsPool.indexOf(finalIds.get(reservedInd));
                     idsPool.remove(remove);
@@ -67,6 +66,4 @@ public class Compare {
         }
         return nameIds;
     }
-
-
 }

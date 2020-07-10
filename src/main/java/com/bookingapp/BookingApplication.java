@@ -1,7 +1,6 @@
 package com.bookingapp;
 
-import com.bookingapp.Service.Compare;
-import com.bookingapp.Service.LogicModule;
+import com.bookingapp.Unused.LogicModule;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
@@ -20,12 +19,5 @@ public class BookingApplication {
 
         SpringApplication.run(BookingApplication.class, args);
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfig.class);
-
-        LogicModule reservation = applicationContext.getBean(LogicModule.class);
-
-        //LogicModule reservation = new LogicModule();
-
-        reservation.test();
-
     }
 }
