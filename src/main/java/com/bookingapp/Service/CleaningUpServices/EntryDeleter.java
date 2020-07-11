@@ -21,7 +21,7 @@ public class EntryDeleter {
     //TODO deletes reservation entry from available reservations pool
 
     //FileInputStream file = new FileInputStream(new File(".resources/demo.xlsx"));
-    FileInputStream file = new FileInputStream(new File("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demo.xlsx"));
+    FileInputStream file = new FileInputStream(new File("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx"));
     XSSFWorkbook workBook = new XSSFWorkbook(file);
     XSSFSheet sheet = workBook.getSheetAt(0);
 
@@ -50,7 +50,7 @@ public class EntryDeleter {
 
         sheet.removeRow(sheet.getRow(i));
         sheet.shiftRows(i+1,sheet.getLastRowNum(),-1);
-        FileOutputStream outData = new FileOutputStream("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demo.xlsx");
+        FileOutputStream outData = new FileOutputStream("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demo.xlsx");
         workBook.write(outData);
 
         System.out.println("index int from deleteEntry >>" + idIndex);

@@ -63,8 +63,11 @@ public class WebController {
 
         ticketWriter.ticketWriter(reservation.getName(), reservation.getSureName(), compare.compare(), i, 69, 96, compare.outputListOfLocations(), compare.outputListOfNames());
 
-        entryDeleter.deleteEntry(reservation.getReservationName(), 1);
+    }
 
+    @PostMapping("/removeReservation")
+    public void removeReservation(@RequestBody Reservation reservation) throws IOException{
+        entryDeleter.deleteEntry(reservation.getReservationName(), 1);
     }
 
 }
