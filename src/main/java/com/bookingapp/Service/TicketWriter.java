@@ -15,7 +15,7 @@ import org.springframework.stereotype.Component;
 public class TicketWriter {
 
 
-    public void ticketWriter(String name, String sureName, double id, int idIndex, int reservationDateStart, int reservationDateEnd, List<String> reservationLocation, List<String> reservationName) throws IOException {
+    public void ticketWriter(String name, String sureName, List<Double>  id,int idIndex, int reservationDateStart, int reservationDateEnd, List<String> reservationLocation, List<String> reservationName) throws IOException {
         XSSFWorkbook workBook = new XSSFWorkbook();
         XSSFSheet sheet = workBook.createSheet("Reservation Ticket");
 
@@ -29,7 +29,7 @@ public class TicketWriter {
 
             Row idRow = sheet.getRow(2);  //writes reservation id in the selected cell
             Cell idCell = idRow.createCell(7);
-            idCell.setCellValue(id);
+            idCell.setCellValue(id.get(idIndex));
 
             Row reservationStartRow = sheet.createRow(7);   //writes reservations start date
             Cell reservationStartCell = reservationStartRow.createCell(2);
@@ -47,7 +47,7 @@ public class TicketWriter {
             Cell bookingNameCell = bookingNameRow.createCell(7);
             bookingNameCell.setCellValue(reservationName.get(idIndex));
 
-            try (FileOutputStream outputStream = new FileOutputStream("C:\\Users\\Ilya\\Desktop\\BookingService\\src\\main\\resources\\demoTicket.xlsx")) {
+            try (FileOutputStream outputStream = new FileOutputStream("C:\\Users\\Pepega\\IdeaProjects\\BookingService\\src\\main\\resources\\demoTicket.xlsx")) {
             workBook.write(outputStream);
         }
     }

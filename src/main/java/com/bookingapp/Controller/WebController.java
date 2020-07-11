@@ -4,6 +4,7 @@ import com.bookingapp.GettersNSetters.Reservation;
 import com.bookingapp.Service.Compare;
 import com.bookingapp.Service.DataBaseReader;
 import com.bookingapp.Service.TicketWriter;
+import com.bookingapp.Service.CleaningUpServices.EntryDeleter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.ui.Model;
@@ -28,7 +29,8 @@ public class WebController {
     Reservation reservation;
     @Autowired
     TicketWriter ticketWriter;
-
+    @Autowired
+    EntryDeleter entryDeleter;
 
 
     @GetMapping("/newReservation")
@@ -47,7 +49,7 @@ public class WebController {
         output.put("locations", locations);
         output.put("names", names);
 
-       // output.put("ids", ids); <<need to figure this one out
+        // output.put("ids", ids); <<need to figure this one out
         return output;
     }
 
@@ -55,12 +57,13 @@ public class WebController {
     public void selectReservation(@RequestBody Reservation reservation) throws IOException {
 
         int i = compare.outputListOfNames().indexOf(reservation.getReservationName());
+        System.out.println("getReservationName " + reservation.getReservationName());
+        System.out.println(compare.outputListOfNames());
         System.out.println("indx id " + i);
 
-        System.out.println("id to index id " + reservation.getIdIndex());
+        ticketWriter.ticketWriter(reservation.getName(), reservation.getSureName(), compare.compare(), i, 69, 96, compare.outputListOfLocations(), compare.outputListOfNames());
 
-        ticketWriter.ticketWriter(reservation.getName(), reservation.getSureName(), reservation.getReservationID(), i, 69, 96, compare.outputListOfLocations(), compare.outputListOfNames());
-        System.out.println(reservation.getReservationID() + reservation.getReservationID());
+        entryDeleter.deleteEntry(reservation.getReservationName(), 1);
 
     }
 

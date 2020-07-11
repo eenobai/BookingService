@@ -15,11 +15,6 @@ public class Compare {
     @Autowired
     ReservedDataBaseReader reservedDataBaseReader;
 
-
-/*    List<String> location = dataBaseReader.locationReader();
-
-    List<Double> finalIdsPool = new ArrayList();
-*/
     public List<Double> compare(){
         List<Double> idsPool = dataBaseReader.idReader();
         List<Double> reservedId = reservedDataBaseReader.reservedIds();
