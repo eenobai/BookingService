@@ -22,18 +22,7 @@ public class BookingApplication {
         ApplicationContext applicationContext = new AnnotationConfigApplicationContext(SpringConfig.class);
 
 
-        //TODO V MongoDB first attempt
-        MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost:27017"));
-        DB database = mongoClient.getDB("Reservations");
-        DBCollection collection = database.getCollection("Reservations");
-        DBCursor cursor = collection.find();
 
-        while(cursor.hasNext()){
-            //int i = 1;
-            System.out.println(cursor.next());
-           // i++;
-        }
 
-        System.out.println();
     }
 }
